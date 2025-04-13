@@ -2,3 +2,30 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background: linear-gradient(to right, #6297a5, #073f85);
+}
+h2{
+    color: #50e9ee;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 50px auto;
+    text-align: center;
+}
+.calculator{
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+button{
+    color: #50e9ee;
+    background-color: #073f85;
+    border: 3px solid;
+    width: 100px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 50px;
+}
