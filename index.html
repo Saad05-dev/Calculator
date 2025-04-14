@@ -8,25 +8,57 @@
 </head>
 <body>
     <h2>Calculator</h2>
+    <!-- paragraph that displays input of user and result of operation-->
+    <p class="display"></p>
+    <!--Calculator-->
     <div class="calculator">
-        <button class="number">1</button>
-        <button class="number">2</button>
-        <button class="number">3</button>
-        <button class="operator">+</button>
-        <button class="number">4</button>
-        <button class="number">5</button>
-        <button class="number">6</button>
-        <button class="operator">-</button>
-        <button class="number">7</button>
-        <button class="number">8</button>
-        <button class="number">9</button>
-        <button class="operator">*</button>
-        <button class="number">0</button>
-        <button class="float">.</button>
-        <button class="equal">=</button>
-        <button class="operator">/</button>
-        <button class="reset">Clear</button>
+        <!-- First line-->
+        <button onclick="
+        updateCalculation('1');">1</button>
+        <button  onclick="
+        updateCalculation('2');">2</button>
+        <button  onclick="
+        updateCalculation('3');">3</button>
+        <button onclick="
+        updateCalculation('+');">+</button>
+        <!--second line-->
+        <button onclick="
+        updateCalculation('4');">4</button>
+        <button  onclick="
+        updateCalculation('5');">5</button>
+        <button  onclick="
+        updateCalculation('6');">6</button>
+        <button  onclick="
+        updateCalculation('-');">-</button>
+        <!-- third line-->
+        <button  onclick="
+        updateCalculation('7');">7</button>
+        <button  onclick="
+        updateCalculation('8');">8</button>
+        <button  onclick="
+        updateCalculation('9');">9</button>
+        <button  onclick="
+        updateCalculation('*');">*</button>
+        <!-- Fourth line-->
+        <button onclick="
+        updateCalculation('.');">.</button>
+        <button  onclick="
+        updateCalculation('0');">0</button>
+        <button onclick="
+        calc = eval(calc);
+        calculation();
+        localStorage.setItem('result',calc);
+        ">=</button>
+        <button  onclick="
+        updateCalculation('/');">/</button>
+        <!-- Reset Button-->
+        <button onclick="
+        calc = '';
+        calculation();
+        localStorage.setItem('result',calc)
+        ">Clear</button>
     </div>
-    <script src="index.js"></script>
+    <!--JS file-->
+    <script src="index.js" defer></script>
 </body>
 </html>
