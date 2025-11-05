@@ -3,6 +3,8 @@
 let calc = String(localStorage.getItem('result') || '');
 displayCurrentValue();
 
+const decimalBtn = document.getElementById("decimal-button");
+
 // Function to erase number or operator
 function erase() {
     calc = String(calc).trim(); 
@@ -18,6 +20,12 @@ function erase() {
 //Function that captures user input and stores it in the variable calc 
 function handleCalculation(operation)
 {
+    //Handling decimal button so that it doens't get pressed more than once
+    
+    if(operation === '.' && calc.includes('.'))
+    {
+        return;
+    }
     if( operation == "+" || operation == "-" || operation == "*" || operation == "/")
     {
         calc += ` ${operation} `;
