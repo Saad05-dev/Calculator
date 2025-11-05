@@ -1,6 +1,20 @@
+
 // Variable that stores the buttons values
-let calc = localStorage.getItem('result') || '' ;
+let calc = String(localStorage.getItem('result') || '');
 displayCurrentValue();
+
+// Function to erase number or operator
+function erase() {
+    calc = String(calc).trim(); 
+    if (calc.endsWith(' ')) {
+        calc = calc.slice(0, -3); 
+    } else {
+        calc = calc.slice(0, -1); 
+    }
+    displayCurrentValue();
+    localStorage.setItem('result', calc);
+}
+
 //Function that captures user input and stores it in the variable calc 
 function handleCalculation(operation)
 {
@@ -18,30 +32,50 @@ function handleCalculation(operation)
 
     localStorage.setItem('result',calc);
 }
+
 // Function that displays the input of user and result
 function displayCurrentValue()
 {
-    document.querySelector('.display').innerHTML = " " + calc;
+    document.querySelector('.display-text').innerHTML = " " + calc;
 }
+// Funtion to calculate result
 function calculateResult()
 {
     let operation = calc.trim().split(' ');
-    console.log(operation);
+
+    let num1 = parseFloat(operation[0]);
+    let num2 = parseFloat(operation[2]);
+    let result;
     
     switch (operation[1]) {
        case "+":
-                return operation[0] + operation[2];
+                result = num1 + num2;
+                break;
 
             case "-":
-                return operation[0] - operation[2];
+                result = num1 - num2;
+                break;
 
             case "*":
-                return operation[0] * operation[2];
+                result = num1 * num2;
+                break;
 
             case "/":
-                return operation[0] / operation[2];
+                if(operation[2] == 0)
+                {
+                    alert("can't divide by 0");
+                    return;
+                }
+                result = num1 / num2;
+                break;
 
             default:
-                return alert("unknown operation try again");
+                alert("unknown operation try again");
+                return;
     }
+
+    // Float values handling
+    result = Math.round(result * 10000000000) / 10000000000;
+
+    return result;
 }

@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="styles.css">
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <h2>Calculator</h2>
     <!-- paragraph that displays input of user and result of operation-->
-    <p class="display"></p>
+     <div class="display">
+        <p class="display-text"></p>
+        <button class="erase" onclick="erase()"><i class='bx  bx-backspace bx-flip-vertical'    ></i> </button>
+    </div>
     <!--Calculator-->
     <div class="calculator">
         <!-- First line-->
